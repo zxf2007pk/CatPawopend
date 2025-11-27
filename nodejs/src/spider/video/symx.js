@@ -1,6 +1,4 @@
 import req from '../../util/req.js';
-import pkg from 'lodash';
-const { _ } = pkg;
 import CryptoJS from 'crypto-js';
 import { load } from 'cheerio';
 
