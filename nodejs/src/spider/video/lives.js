@@ -1,6 +1,4 @@
 import req from '../../util/req.js';
-import pkg from 'lodash';
-const { _ } = pkg;
 import { MAC_UA } from '../../util/misc.js';
 
 // 每次读文件时重置1
