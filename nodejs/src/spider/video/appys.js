@@ -2,9 +2,6 @@ import req from '../../util/req.js';
 import CryptoJS from 'crypto-js';
 import { load } from 'cheerio';
 
-import pkg from 'lodash';
-const { _ } = pkg;
-
 let host = '';
 
 let header = {
