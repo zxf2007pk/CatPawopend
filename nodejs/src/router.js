@@ -26,27 +26,27 @@ import cntv from "./spider/video/cntv.js";
 import bili from "./spider/video/bili.js";
 import appys from "./spider/video/appys.js";
 
-常数 蜘蛛 = [豆瓣, 多铎, mogg, 井磊, 潘塔, wogg, 至真, tgchannel, tgsou, 基本集, 推];
-常数 蜘蛛前缀 = /蜘蛛;
+const spiders = [douban, duoduo, mogg, leijing, panta, wogg, zhizhen, tgchannel, tgsou, baseset, push];
+const spiderPrefix = '/spider';
 
 /**
-*初始化路由器的功能。
+ * A function to initialize the router.
  *
-* @ param { Object } Fastify-Fastify实例
-* @return {Promise<void>} -路由器初始化时解析的承诺
+ * @param {Object} fastify - The Fastify instance
+ * @return {Promise<void>} - A Promise that resolves when the router is initialized
  */
-出口 系统默认值 异步ˌ非同步(asynchronous) 功能 路由器(fastify) {
-    //注册所有蜘蛛路由器
-    蜘蛛.为每一个((蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头) => {
-        常数 小路 = 蜘蛛前缀 + '/' + 蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.自指的.键 + '/' + 蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.自指的.类型;
-        fastify.注册(蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.美国石油学会(American Petroleum Institute), { 前缀: 小路 });
-        蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.支票?.(fastify)
-        安慰.原木(注册蜘蛛: ' + 小路);
+export default async function router(fastify) {
+    // register all spider router
+    spiders.forEach((spider) => {
+        const path = spiderPrefix + '/' + spider.meta.key + '/' + spider.meta.type;
+        fastify.register(spider.api, { prefix: path });
+        spider.check?.(fastify)
+        console.log('Register spider: ' + path);
     });
     /**
-* @api {get} /check检查
+     * @api {get} /check 检查
      */
-    fastify.注册(
+    fastify.register(
         /**
          *
          * @param {import('fastify').FastifyInstance} fastify
