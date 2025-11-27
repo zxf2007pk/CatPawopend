@@ -2,8 +2,6 @@ import req from '../../util/req.js';
 import CryptoJS from 'crypto-js';
 import Crypto from 'crypto-js';
 import { load } from 'cheerio';
-import pkg from 'lodash';
-const { _ } = pkg;
 
 let siteKey = "",
     siteType = 0,
@@ -638,4 +636,5 @@ export default {
         // fastify.get('/proxy/:site/:what/:flag/:shareId/:fileId/:end', proxy);
         fastify.get('/test', test);
     },
+
 };
