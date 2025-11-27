@@ -1,6 +1,4 @@
 // 无搜索功能
-import pkg from 'lodash';
-const { _ } = pkg;
 import { MOBILE_UA } from '../../util/misc.js';
 import req from '../../util/req.js';
 import CryptoJS from 'crypto-js';
