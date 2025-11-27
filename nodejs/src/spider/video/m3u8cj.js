@@ -1,8 +1,6 @@
 import * as HLS from 'hls-parser';
 import req from '../../util/req.js';  
 import { load } from 'cheerio';
-import pkg from 'lodash';
-const { _ } = pkg;
 
 let srcobj = {};
 let host = "";
