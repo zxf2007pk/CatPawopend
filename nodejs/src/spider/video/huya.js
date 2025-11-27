@@ -4,9 +4,6 @@ import Crypto from 'crypto-js';
 
 import { load } from 'cheerio';
 
-import pkg from 'lodash';
-const { _ } = pkg;
-
 let host = '';
 let customArea = '';
 let dataFrom = 'official';
