@@ -1,38 +1,52 @@
-import duoduo from "./spider/video/duoduo.js";
-import baseset from "./spider/video/baseset.js";
-import mogg from "./spider/video/mogg.js";
-import leijing from "./spider/video/leijing.js";
-import panta from "./spider/video/panta.js";
-import wogg from "./spider/video/wogg.js";
-import zhizhen from "./spider/video/zhizhen.js";
-import tgsou from "./spider/video/tgsou.js";
-import tgchannel from "./spider/video/tgchannel.js";
-import douban from "./spider/video/douban.js";
-import push from "./spider/video/push.js";
-import {getCache} from "./website/sites.js";
+进口 多铎 从 "./蜘蛛/视频/多多. js ";
+进口 基本集 从 "./spider/video/baseset.js ";
+进口 mogg 从 "./spider/video/mogg.js ";
+进口 井磊 从 "./spider/video/leijing.js ";
+进口 潘塔 从 "./spider/video/panta.js ";
+进口 wogg 从 "./spider/video/wogg.js ";
+进口 至真 从 "./spider/video/zhizhen.js ";
+进口 _ 360巴 从 "./spider/video/_360ba.js ";
+进口 即时通信软件 从 "./蜘蛛/视频/qq.js ";
+进口 爱奇艺 从 "./spider/video/爱奇艺. js ";
+进口 symx 从 "./spider/video/symx.js ";
+进口 syjc 从 "./蜘蛛/视频/qq.js ";
+进口 m3u8cj 从 "./spider/video/m3u8cj.js ";
+进口 生活 从 "./spider/video/lifes . js ";
+进口 结影石 从 "./spider/video/jieyingshi.js ";
+进口 建片 从 "./spider/video/jianpian.js ";
+进口 fenmei_live 从 "./spider/video/fenmei_live.js ";
+进口 胡亚 从 "./spider/video/huya.js ";
+进口 宇都 从 "./spider/video/douyu.js ";
+进口 cntv 从 "./spider/video/cntv.js ";
+进口 胆红素 从 "./spider/video/bili.js ";
+进口 appys 从 "./spider/video/appys.js ";
+进口 tgsou 从 "./spider/video/tgsou.js ";
+进口 tgchannel 从 "./spider/video/tgchannel.js ";
+进口 豆瓣 从 "./蜘蛛/视频/豆瓣. js ";
+进口 推 从 "./spider/video/push.js;
+进口 {getCache} 从 "./website/sites.js;
 
-
-const spiders = [douban, duoduo, mogg, leijing, panta, wogg, zhizhen, tgchannel, tgsou, baseset, push];
-const spiderPrefix = '/spider';
+常数 蜘蛛 = [豆瓣, 多铎, mogg, 井磊, 潘塔, wogg, 至真, 建片, syjc, 即时通信软件, 爱奇艺, 胆红素, _ 360巴, 生活, fenmei_live, cntv, 胡亚, 宇都, m3u8cj, appys, syjc, tgchannel, tgsou, 基本集, 推];
+常数 蜘蛛前缀 = /蜘蛛;
 
 /**
- * A function to initialize the router.
+*初始化路由器的功能。
  *
- * @param {Object} fastify - The Fastify instance
- * @return {Promise<void>} - A Promise that resolves when the router is initialized
+* @ param { Object } Fastify-Fastify实例
+* @return {Promise<void>} -路由器初始化时解析的承诺
  */
-export default async function router(fastify) {
-    // register all spider router
-    spiders.forEach((spider) => {
-        const path = spiderPrefix + '/' + spider.meta.key + '/' + spider.meta.type;
-        fastify.register(spider.api, { prefix: path });
-        spider.check?.(fastify)
-        console.log('Register spider: ' + path);
+出口 系统默认值 异步ˌ非同步(asynchronous) 功能 路由器(fastify) {
+    //注册所有蜘蛛路由器
+    蜘蛛.为每一个((蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头) => {
+        常数 小路 = 蜘蛛前缀 + '/' + 蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.自指的.键 + '/' + 蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.自指的.类型;
+        fastify.注册(蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.美国石油学会(American Petroleum Institute), { 前缀: 小路 });
+        蜘蛛；状似蜘蛛的物体；星形轮；十字叉；连接柄；十字头.支票?.(fastify)
+        安慰.原木(注册蜘蛛: ' + 小路);
     });
     /**
-     * @api {get} /check 检查
+* @api {get} /check检查
      */
-    fastify.register(
+    fastify.注册(
         /**
          *
          * @param {import('fastify').FastifyInstance} fastify
